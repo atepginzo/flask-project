@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Confirmation Header -->
+    <div class="container-fluid bg-primary text-white text-center py-5">
+        <h1 class="display-4">Thank You for Your Order!</h1>
+        <p>Your order has been successfully placed.</p>
+    </div>
+
+    <!-- Order Details -->
+    <div class="container py-5">
+        <h2 class="text-uppercase mb-4">Order Summary</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Full Name:</strong> {{ request.form['full_name'] }}</li>
+            <li class="list-group-item"><strong>Email:</strong> {{ request.form['email'] }}</li>
+            <li class="list-group-item"><strong>Address:</strong> {{ request.form['address'] }}</li>
+            <li class="list-group-item"><strong>Payment Method:</strong> {{ request.form['payment_method'] }}</li>
+        </ul>
+
+        <div class="text-center mt-5">
+            <a href="/" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid bg-dark text-secondary mt-5 py-4 text-center">
+        <p>&copy; 2025 MOGI. All Rights Reserved.</p>
+    </div>
+</body>
+
+</html>

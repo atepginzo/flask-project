@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - MOGI</title>
+    <!-- CSS Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-0">
+        <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 text-uppercase text-white">MOGI</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto mx-lg-auto py-0">
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/about" class="nav-item nav-link">About Us</a>
+                <a href="/menu" class="nav-item nav-link">Menu & Pricing</a>
+                <a href="/team" class="nav-item nav-link">Master Chefs</a>
+                <a href="/contact" class="nav-item nav-link">Contact Us</a>
+                <a href="/checkout" class="nav-item nav-link">Checkout</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">Checkout</h1>
+                <a href="index.html">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <span>Checkout</span>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <form action="{{ url_for('confirmation') }}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" name="full_name" placeholder="Enter your full name" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            <textarea class="form-control" name="address" rows="3" placeholder="Enter your address" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Payment Method</label>
+            <select class="form-select" name="payment_method" required>
+                <option>Credit Card</option>
+                <option>PayPal</option>
+                <option>Bank Transfer</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Place Order</button>
+    </form>
+    
+    <!-- Checkout Start -->
+    <div class="container py-5">
+        <h2 class="text-uppercase mb-4">Order Summary</h2>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center mb-5">
+                        <thead class="bg-secondary text-white">
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mochi Chocolate</td>
+                                <td>$10</td>
+                                <td>2</td>
+                                <td>$20</td>
+                            </tr>
+                            <tr>
+                                <td>Mochi Matcha</td>
+                                <td>$12</td>
+                                <td>1</td>
+                                <td>$12</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-end fw-bold">Subtotal</td>
+                                <td>$32</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-end fw-bold">Shipping</td>
+                                <td>$5</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-end fw-bold">Total</td>
+                                <td>$37</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <h4 class="text-uppercase mb-4">Payment Details</h4>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your full name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter your address"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-select">
+                            <option>Credit Card</option>
+                            <option>PayPal</option>
+                            <option>Bank Transfer</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Checkout End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-secondary mt-5 py-4">
+        <div class="text-center">
+            <p>&copy; 2025 MOGI. All Rights Reserved.</p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
