@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request
+import os
+import logging
 
+logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
-import os
-
+# Routes
 @app.route("/")
 def home():
     return render_template('index.html')
@@ -33,5 +35,7 @@ def confirmation():
     # Data dari form bisa diambil menggunakan request.form
     return render_template('confirmation.html')
 
+# Entry point
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    port = int(os.environ.get('PORT', 5000))  # Default ke port 5000 jika PORT kosong
+    app.run(debug=False, host='0.0.0.0', port=port)
